@@ -5,7 +5,6 @@
  */
 package main;
 
-import com.sun.org.apache.xerces.internal.impl.io.ASCIIReader;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -43,12 +42,12 @@ public class MainThread {
 //        }
 //        reader.close();
 
-        Writer writer = new FileWriter("/home/minhnguyen/Private/Project/java/Java/JavaIO/text/index.html");
-        BufferedWriter bw = new BufferedWriter(writer);
-        String line;
-        while((line = bf.readLine()) != null){
-            bw.write(line);
-        }
-        bw.close();
+//        Writer writer = new FileWriter("/home/minhnguyen/Private/Project/java/Java/JavaIO/text/index.html");
+//        BufferedWriter bw = new BufferedWriter(writer);
+//        String line;
+//        while((line = bf.readLine()) != null){
+//            bw.write(line);
+//        }
+//        bw.close();
     }
 }
