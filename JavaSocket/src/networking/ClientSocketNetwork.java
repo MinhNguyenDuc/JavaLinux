@@ -36,9 +36,10 @@ public class ClientSocketNetwork {
             bw.newLine();
             bw.flush();
             
+            System.out.println("Client waiting for response...");
             String line;
             while((line = br.readLine()) != null){
-                System.out.println("Server : " + line);
+                System.out.println(line);
             }
             
             bw.close();

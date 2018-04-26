@@ -25,14 +25,8 @@ public class ServerSocketNetwork {
         BufferedReader br;
         BufferedWriter bw;
         
-        
         try {
             listener = new ServerSocket(port);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        
-        try {
             System.out.println("Server is waiting for user...");
             
             socketOfSever = listener.accept();
@@ -42,19 +36,19 @@ public class ServerSocketNetwork {
             br = new BufferedReader(new InputStreamReader(socketOfSever.getInputStream()));
             bw = new BufferedWriter(new OutputStreamWriter(socketOfSever.getOutputStream()));
             
-            String line;
+            String line = br.readLine();
+             System.out.println(line);
+//            while((line = br.readLine()) != null){
+//                System.out.println(line);
+//            }
             
-            while((line = br.readLine()) != null){
-                System.out.println(line);
-            }
-            
-            bw.write("Server rep Client");
+            bw.write("Server : Hello client i'm sever");
             bw.newLine();
             bw.flush();
             
-            bw.close();
-            br.close();
-            socketOfSever.close();
+//            bw.close();
+//            br.close();
+//            socketOfSever.close();
             
             System.out.println("Server Stop");
             
