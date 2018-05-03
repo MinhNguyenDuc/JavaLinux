@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
+import java.util.Scanner;
 
 /**
  *
@@ -25,6 +26,7 @@ public class ClientSocketNetwork {
         Socket socketOfClient;
         BufferedReader br;
         BufferedWriter bw;
+        Scanner scanner = new Scanner(System.in);
         
         try {
             socketOfClient = new Socket(serverHost, port);
@@ -32,7 +34,9 @@ public class ClientSocketNetwork {
             bw = new BufferedWriter(new OutputStreamWriter(socketOfClient.getOutputStream()));
             br = new BufferedReader(new InputStreamReader(socketOfClient.getInputStream()));  
             
-            bw.write("Client : Hello server i'm client");
+            System.out.println("Write message");
+            String message = scanner.nextLine();
+            bw.write("Client : " + message);
             bw.newLine();
             bw.flush();
             

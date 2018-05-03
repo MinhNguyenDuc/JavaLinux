@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Scanner;
 
 /**
  *
@@ -24,6 +25,7 @@ public class ServerSocketNetwork {
         int port = 3001;
         BufferedReader br;
         BufferedWriter bw;
+        Scanner scanner = new Scanner(System.in);
         
         try {
             listener = new ServerSocket(port);
@@ -37,18 +39,13 @@ public class ServerSocketNetwork {
             bw = new BufferedWriter(new OutputStreamWriter(socketOfSever.getOutputStream()));
             
             String line = br.readLine();
-             System.out.println(line);
-//            while((line = br.readLine()) != null){
-//                System.out.println(line);
-//            }
+            System.out.println(line);
             
-            bw.write("Server : Hello client i'm sever");
+            System.out.println("Write response : ");
+            bw.write("Server : " + scanner.nextLine());
             bw.newLine();
             bw.flush();
-            
-//            bw.close();
-//            br.close();
-//            socketOfSever.close();
+
             
             System.out.println("Server Stop");
             
